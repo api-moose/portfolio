@@ -1,34 +1,30 @@
-# SvelteKit on the edge
+# SvelteKit Portfolio
 
-A demo [SvelteKit](https://kit.svelte.dev) app running on [Vercel Edge Functions](https://vercel.com/features/edge-functions), which run close to your users to enable dynamic server-side rendering at the speed of static content.
+This is an implementation of a portfolio website built by [Mustafa Masud](https://github.com/api-moose) with Sveltekit.
 
-## How to enable edge functions in your SvelteKit app deployed to Vercel
+_Live Example: https://masud.io_
 
-- Use your package manager to install [`@sveltejs/adapter-vercel`](https://github.com/sveltejs/kit/tree/master/packages/adapter-vercel)
-- Update [svelte.config.js](/svelte.config.js) to use `adapter-vercel` instead of the default `adapter-auto`
-- Pass the `runtime: 'edge'` option to the adapter
+## Deploy Your Own
+
+I deployed this with [Vercel](https://vercel.com).
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've created a project and installed dependencies with `pnpm install` to start a development server, start a development server:
 
 ```bash
-npm run dev
+pnpm run dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm run dev -- --open
 ```
 
-## Deploying
+## Building
 
-The easiest way to deploy your app is to link the repo to your Vercel account. Alternatively, you can create a production build locally...
+To create a production version of your app:
 
-```
-npm run build
+```bash
+pnpm run build
 ```
 
-...and deploy the prebuilt app to Vercel:
-
-```
-vc deploy --prebuilt
-```
+You can preview the production build with `pnpm run preview`.

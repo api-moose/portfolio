@@ -1,76 +1,71 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import '$lib/styles.css';
-	import card from '$lib/twitter-card.jpg';
+	import card from '$lib/thumbnail-portfolio.jpg';
 	import Card from '$lib/Card.svelte';
-	import Footer from '$lib/Footer.svelte';
 	import { page } from '$app/stores';
+	import githubL from '$lib/github-mark-light.png';
+	import linkedin from '$lib/linkedin-mark.png';
+
 </script>
 
 <svelte:head>
-	<title>SvelteKit on the edge</title>
-	<meta name="description" content="HTML, dynamically rendered in a city near you" />
+	<title>Mustafa's Portfolio</title>
+	<meta name="description" content="This dynamic portfolio took a while to customize" />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content="@vercel" />
-	<meta name="twitter:creator" content="@sveltejs" />
-	<meta name="twitter:title" content="SvelteKit on the edge" />
-	<meta name="twitter:description" content="HTML, dynamically rendered in a city near you" />
+	<meta name="twitter:site" content="@mustafasmasud" />
+	<meta name="twitter:creator" content="@mustafasmasud" />
+	<meta name="twitter:title" content="Mustafa's Portfolio" />
+	<meta name="twitter:description" content="This dynamic portfolio took a while to customize" />
 	<meta name="twitter:image" content="{$page.url.origin}{card}" />
-	<meta name="twitter:image:alt" content="The Vercel and Svelte logos" />
+	<meta name="twitter:image:alt" content="An illustration of Mustafa Masud in his 20s" />
 </svelte:head>
-
 <Card />
 
-<nav>
-	<a aria-current={$page.url.pathname === '/edge' ? 'true' : undefined} href="/edge">edge</a>
-	<a
-		aria-current={$page.url.pathname === '/edge/streaming' ? 'true' : undefined}
-		href="/edge/streaming">(streamed)</a
-	>
-	/
-	<a aria-current={$page.url.pathname === '/node' ? 'true' : undefined} href="/node">node</a>
-	<a
-		aria-current={$page.url.pathname === '/node/streaming' ? 'true' : undefined}
-		href="/node/streaming">(streamed)</a
-	>
-</nav>
+<div class="app">
+	<Header />
+
+	<footer>
+		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	</footer>
+</div>
 
 {#key $page.url.pathname}
-	<main in:fade>
-		<slot />
-	</main>
+    <main in:fade>
+        <slot />
+    </main>
 {/key}
 
-<Footer />
-
 <style>
-	main {
-		position: relative;
-		width: 100vw;
-		height: 100%;
-		padding: 2.5rem;
-		box-sizing: border-box;
-	}
+    header {
+        display: flex;
+        justify-content: space-between;
+    }
 
-	nav {
-		position: absolute;
-		display: flex;
-		justify-content: center;
-		padding: 1rem;
-		gap: 0.5em;
-		top: 0;
-		left: 0;
-		width: 100%;
-		z-index: 2;
-		font-size: 0.9rem;
-		color: #999;
-	}
+    .corner {
+        width: 3em;
+        height: 3em;
+    }
 
-	a {
-		color: #666;
-	}
+    .icon-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.2s ease;
+    }
 
-	a[aria-current='true'] {
-		color: #ff3e00;
-	}
+    .icon-img {
+        width: 2em;
+        height: 2em;
+        object-fit: contain;
+        transition: filter 0.2s ease;
+    }
+
+    /* Enhanced hover effect for better visibility */
+    .icon-link:hover .icon-img {
+        filter: brightness(0.7);
+        transform: scale(1.1); /* Slightly enlarge the icons on hover */
+    }
 </style>
